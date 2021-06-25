@@ -1,0 +1,35 @@
+<h4>by City <strong>{{city}}</strong></h4>
+
+<div class="main container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="weather-panel">
+        <div class="col-xs-6">
+          <figure style="float: right">
+            <img class="weather-icon" [src]="buildIconUrl(currentCityWeather.weather[0].icon)"  alt="weather-icon">
+            <figcaption class="description">{{currentCityWeather.weather[0].description | titlecase}}</figcaption>
+          </figure>
+          <h2>{{weatherReport?.city?.name}}<br><small>{{((currentCityWeather.dt)*1000) | date}}</small></h2>
+        </div>
+        <div class="col-xs-6 text-center">
+          <div class="h1 temperature">
+            <span>{{currentCityWeather.wind.deg}}°</span>
+            <br>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <ul class="list-inline row forecast">
+            <li class="col-xs-4 col-sm-2 text-center" >
+              <h3 class="h5">Date </h3>
+              <p><i class="mi mi-fw mi-2x mi-cloud-sun"></i><br>Sea Level @ 9.00</p>
+            </li>
+            <li class="col-xs-4 col-sm-2 text-center" *ngFor="let report of forecastList">
+              <h3 class="h5">{{(report?.dt_txt) | date}}</h3>
+              <p><i class="mi mi-fw mi-2x mi-sun"></i><br>{{report?.main?.sea_level}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

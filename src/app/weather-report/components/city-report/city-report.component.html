@@ -1,0 +1,24 @@
+<h4>by List of 5 European Cities</h4>
+<div class="row" >
+  <div class="col-md-15 col-sm-3" *ngFor="let city of cities">
+    <section class="ajax-section">
+      <div class="container">
+        <ul class="cities city-border" ><li class="city" (click)="navigateToCityReport(city)">
+          <h2 class="city-name" data-name="Hyderabad,IN">
+            <span>{{city.name}}</span>
+            <sup class="sunrise">{{city.sys.country}}</sup>
+          </h2>
+          <div class="city-temp">{{city.wind.deg}}<sup>°C</sup></div>
+          <figure>
+            <img class="weather-icon" [src]="buildIconUrl(city.weather[0].icon)"  alt="weather-icon">
+            <figcaption class="description">{{city.weather[0].description | titlecase}}</figcaption>
+          </figure>
+          <p class="sunrise">SunRise: {{(city.sys.sunrise * 1000) | date:"HH:mm"}}</p>
+          <p class="sunset">SunSet:&nbsp;	 {{(city.sys.sunset * 1000) | date:"HH:mm"}}</p>
+
+        </li></ul>
+      </div>
+    </section>
+  </div>
+
+</div>
